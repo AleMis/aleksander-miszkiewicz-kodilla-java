@@ -19,22 +19,22 @@ public class ForumCalculations {
         postsNumber = statistics.postsCount();
         commentsNumber = statistics.commentsCount();
 
-        if(postsNumber ==0) {
+        if(postsNumber == 0 || usersNumber == 0) {
             avgPostsPerUser = 0;
         }else {
-            avgPostsPerUser = postsNumber / usersNumber;
+            avgPostsPerUser = (double) postsNumber /  (double) usersNumber;
         }
 
-        if(commentsNumber ==0) {
+        if(commentsNumber == 0 || usersNumber == 0) {
             avgCommentsPerUser = 0;
         } else {
-            avgCommentsPerUser = commentsNumber / usersNumber;
+            avgCommentsPerUser = (double) commentsNumber / (double) usersNumber;
         }
 
         if(commentsNumber == 0 || postsNumber ==0) {
             avgCommentsPerPost = 0;
         }else {
-            avgCommentsPerPost = commentsNumber / postsNumber;
+            avgCommentsPerPost = (double) commentsNumber / (double) postsNumber;
         }
     }
 
