@@ -1,6 +1,10 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.iterate.NumbersGenerator;
+import com.kodilla.stream.formuser.FormUser;
+import com.kodilla.stream.formuser.Forum;
+
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
 
@@ -27,8 +31,49 @@ public class StreamMain {
 //        beautifier.beautify("MONITOR", String::toLowerCase);
 
 //        +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//
+//        NumbersGenerator generator = new NumbersGenerator();
+//        generator.generateEven(100);
 
-        NumbersGenerator generator = new NumbersGenerator();
-        generator.generateEven(100);
+//        People.getList().stream()
+//             .map(s -> s.toUpperCase())
+//                .filter(s-> s.length() > 11)
+//                .map(s-> s.substring(0, s.indexOf(' ') + 2) + ".")
+//                .filter(s-> s.substring(0, 1).equals("M"))
+//                .forEach(System.out::println);
+
+//        BookDirectory theBookDirectory = new BookDirectory();
+//        theBookDirectory.getList().stream()
+//                .filter(book -> book.getYearOfPublication() > 2005)
+//                .forEach(System.out::println);
+
+//        BookDirectory theBookDirectory = new BookDirectory();
+//        Map<String, Book> theResultListOfBooks = theBookDirectory.getList().stream()
+//                .filter(book -> book.getYearOfPublication() > 2005)
+//                .collect(Collectors.toMap(Book::getSignature, book -> book));
+//
+//        System.out.println("#elements: " + theResultListOfBooks.size());
+//        theResultListOfBooks.entrySet().stream()
+//                .map(entry -> entry.getKey() + " : " + entry.getValue())
+//                .forEach(System.out::println);
+
+//        BookDirectory theBookDirectory = new BookDirectory();
+//        String theResultStringOfBooks = theBookDirectory.getList().stream()
+//                .filter((book -> book.getYearOfPublication() > 2005))
+//                .map(Book::toString)
+//                .collect(Collectors.joining(",\n", "<<", ">>"));
+//        System.out.println(theResultStringOfBooks);
+
+        Forum forum = new Forum();
+        Map<Integer, FormUser> theMapOfForumUsers = forum.getListOfUsers().stream()
+                .filter(formUser -> formUser.getSex() == 'm')
+                .filter(formUser -> formUser.getBirthData().getYear() <=1997)
+                .filter(formUser -> formUser.getPostsNumber() >=1)
+                .collect(Collectors.toMap(FormUser::getUserID, formUser -> formUser));
+
+        theMapOfForumUsers.entrySet().stream()
+                .map(entry -> entry.getKey() + " ; " + entry.getValue())
+                .forEach(System.out::println);
+
     }
 }
