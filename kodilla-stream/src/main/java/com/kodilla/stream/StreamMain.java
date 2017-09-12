@@ -1,6 +1,6 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.iterate.NumbersGenerator;
 
 public class StreamMain {
 
@@ -20,12 +20,15 @@ public class StreamMain {
 
 //        +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-        PoemBeautifier beautifier = new PoemBeautifier();
-        beautifier.beautify("makaron",  String::toUpperCase);
-        beautifier.beautify("trampolina", n -> "ABC" + n + "ABC");
-        beautifier.beautify("żelasko", (String) -> String.replace('e', 'E'));
-        beautifier.beautify("MONITOR", String::toLowerCase);
+//        PoemBeautifier beautifier = new PoemBeautifier();
+//        beautifier.beautify("makaron",  String::toUpperCase);
+//        beautifier.beautify("trampolina", n -> "ABC" + n + "ABC");
+//        beautifier.beautify("żelasko", (String) -> String.replace('e', 'E'));
+//        beautifier.beautify("MONITOR", String::toLowerCase);
 
+//        +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+        NumbersGenerator generator = new NumbersGenerator();
+        generator.generateEven(100);
     }
 }
