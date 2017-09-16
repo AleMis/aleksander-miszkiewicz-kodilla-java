@@ -170,7 +170,34 @@ public class BoardTestSuite {
        double average = sum.orElse(0.0) / quantity.orElse(0.0);
 
         Assert.assertEquals(10.0, average, 1000000);
-        //zrobię jeszcze rozwiazanie z gwiazdką, tak aby wszystko się odrazu liczyło :)
+
+    }
+    //z gwiazdką
+    @Test
+    public void testAddTaskListAverageWorkingOnTaskzGwiazdka() {
+        //Given
+        Board project = prepareTestData();
+
+
+        //When
+        LocalDate current = LocalDate.now();
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+
+        //Then
+
+        double average2 = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(x -> x.getTasks().stream())
+                .map(Task::getCreated)
+                .map(n -> ChronoUnit.DAYS.between(n, current))
+                .mapToDouble(n -> n)
+                .average()
+                .orElse(0.0);
+
+
+        Assert.assertEquals(10.0, average2, 1000000);
+
     }
 
 
