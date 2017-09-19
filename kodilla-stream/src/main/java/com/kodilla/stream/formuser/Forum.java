@@ -20,6 +20,7 @@ public class Forum {
     }
 
     public List<FormUser> getListOfUsers() {
+
         return new ArrayList<>(listOfUsers);
     }
 }

@@ -169,7 +169,7 @@ public class BoardTestSuite {
 
        double average = sum.orElse(0.0) / quantity.orElse(0.0);
 
-        Assert.assertEquals(10.0, average, 1000000);
+        Assert.assertEquals(10.0, average, 0.01);
 
     }
     //z gwiazdką
@@ -196,7 +196,7 @@ public class BoardTestSuite {
                 .orElse(0.0);
 
 
-        Assert.assertEquals(10.0, average2, 1000000);
+        Assert.assertEquals(10.0, average2, 0.01);
 
     }
 
