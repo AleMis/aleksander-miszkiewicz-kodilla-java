@@ -1,4 +1,4 @@
-import challenges.MovieStore;
+import challenges.exercise91.MovieStore;
 
 public class Main {
 
