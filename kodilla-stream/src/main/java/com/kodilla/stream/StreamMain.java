@@ -1,10 +1,12 @@
 package com.kodilla.stream;
 
+import com.kodilla.stream.book.BookDirectory;
 import com.kodilla.stream.formuser.FormUser;
 import com.kodilla.stream.formuser.Forum;
 
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class StreamMain {
 
@@ -75,5 +77,19 @@ public class StreamMain {
                 .map(entry -> entry.getKey() + " ; " + entry.getValue())
                 .forEach(System.out::println);
 
+
+        BookDirectory bookDirectory = new BookDirectory();
+
+                long number = IntStream.range(0, bookDirectory.getList().size())
+                        .filter(n -> bookDirectory.getList().get(n).getYearOfPublication() > n)
+                        .count();
+
+
+
+        }
+
     }
-}
+
+
+
+
