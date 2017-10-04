@@ -9,7 +9,9 @@ public class MainReflection {
         Class myClass = MyObject.class;
         reflection(myClass);
 
+
     }
+
 
 
     public static void reflection(Class myclass) {
