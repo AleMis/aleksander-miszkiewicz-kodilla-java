@@ -1,4 +1,4 @@
-package reflection;
+package reflection.exercise1;
 
 public class MyObject {
 
