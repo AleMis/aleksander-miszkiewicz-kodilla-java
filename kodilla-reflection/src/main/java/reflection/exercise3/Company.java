@@ -1,6 +1,6 @@
 package reflection.exercise3;
 
-@DatabaseAnnotation(name="Company", value = "This class creates company's object")
+@MainClassAnnotation(name="Company", value = "This class creates company's object")
 public class Company {
 
     private String name;

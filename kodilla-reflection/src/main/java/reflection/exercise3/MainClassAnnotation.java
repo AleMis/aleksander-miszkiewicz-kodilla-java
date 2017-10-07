@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface DatabaseAnnotation {
+public @interface MainClassAnnotation {
 
     String name();
     String value();

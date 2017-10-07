@@ -2,7 +2,7 @@ package reflection.exercise3;
 
 import java.util.List;
 
-@DatabaseAnnotation(name = "Database", value = "This class hel to create database from List")
+@MainClassAnnotation(name = "Database", value = "This class hel to create database from List")
 public class Database<U> {
 
     private List<U> database;
