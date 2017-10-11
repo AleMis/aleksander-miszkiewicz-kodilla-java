@@ -1,4 +1,4 @@
-package com.kodilla.patterns.prototype.com.kodilla.patterns.prototype.library;
+package com.kodilla.patterns.prototype.library;
 
 import com.kodilla.patterns.prototype.library.Book;
 import com.kodilla.patterns.prototype.library.Library;
