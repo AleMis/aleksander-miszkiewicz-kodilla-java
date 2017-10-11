@@ -1,4 +1,4 @@
-package com.kodilla.patterns.prototype.strategy.social;
+package com.kodilla.patterns.strategy.social;
 
 import com.kodilla.patterns.strategy.social.FacebookPublisher;
 import com.kodilla.patterns.strategy.social.Millenials;
