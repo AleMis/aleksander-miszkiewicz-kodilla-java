@@ -36,6 +36,4 @@ public class Library extends PrototypeForLibrary{
         }
         return clonedLibrary;
     }
-
-
 }

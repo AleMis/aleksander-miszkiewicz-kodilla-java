@@ -1,7 +1,5 @@
 package com.kodilla.patterns.factory.tasks;
 
-import com.kodilla.patterns.tasks.Task;
-import com.kodilla.patterns.tasks.TaskFactory;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,16 +1,16 @@
-package com.kodilla.patterns.tasks;
+package com.kodilla.patterns.factory.tasks;
 
-public class ShoppingTask implements Task{
+public class PaintingTask implements Task {
 
     final String taskName;
-    final String whatToBuy;
-    final double quantity;
+    final String color;
+    final String whatToPaint;
     boolean execution;
 
-    public ShoppingTask(final String taskName,final String whatToBuy,final double quantity) {
+    public PaintingTask(String taskName, String color, String whatToPaint) {
         this.taskName = taskName;
-        this.whatToBuy = whatToBuy;
-        this.quantity = quantity;
+        this.color = color;
+        this.whatToPaint = whatToPaint;
     }
 
     @Override
