@@ -9,9 +9,10 @@ import java.util.List;
 @Entity
 @Table(name="PRODUCTS")
 public class Product {
+
     private int id;
     private String name;
-    private List<Item> items = new ArrayList<>();
+    private List<Item> itemsList = new ArrayList<>();
 
     public Product() {
     }
@@ -21,32 +22,25 @@ public class Product {
     }
 
     @Id
-    @GeneratedValue
     @NotNull
+    @GeneratedValue
     @Column(name="ID")
     public int getId() {
         return id;
     }
 
     @NotNull
-    @Column(name="NAME")
+    @Column(name="PRODUCT_NAME")
     public String getName() {
         return name;
     }
 
-
-    @OneToMany(
-            targetEntity = Item.class,
-            mappedBy = "product",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
+    @OneToMany(targetEntity = Item.class,
+    cascade = CascadeType.ALL,
+    fetch = FetchType.LAZY,
+    mappedBy = "product")
+    public List<Item> getItemsList() {
+        return itemsList;
     }
 
     public void setId(int id) {
@@ -55,5 +49,9 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setItemsList(List<Item> itemsList) {
+        this.itemsList = itemsList;
     }
 }

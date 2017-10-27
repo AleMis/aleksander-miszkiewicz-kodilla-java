@@ -20,51 +20,43 @@ public class InvoiceDaoTestSuite {
     @Autowired
     InvoiceDao invoiceDao;
 
-
     @Test
     public void testInvoiceDaoSave() {
         //Given
         Product notebook = new Product("Notebook");
-        Product keyboard = new Product("Keyboard");
         Product monitor = new Product("Monitor");
+        Product keyboard = new Product("Keyboard");
         Product mouse = new Product("Mouse");
 
-        Item item1 = new Item(notebook, new BigDecimal(5000), 2);
-        Item item2 = new Item(keyboard, new BigDecimal(200), 4);
-        Item item3 = new Item(monitor, new BigDecimal(1000), 2);
-        Item item4 = new Item(mouse, new BigDecimal(300), 4);
-
-        notebook.getItems().add(item1);
-        keyboard.getItems().add(item2);
-        monitor.getItems().add(item3);
-        mouse.getItems().add(item4);
+        Item item1 = new Item(notebook, new BigDecimal(4000), 2);
+        Item item2 = new Item(monitor, new BigDecimal(1000), 4);
+        Item item3 = new Item(keyboard, new BigDecimal(200), 2);
+        Item item4 = new Item(mouse, new BigDecimal(300), 2 );
 
         item1.setProduct(notebook);
-        item2.setProduct(keyboard);
-        item3.setProduct(monitor);
+        item2.setProduct(monitor);
+        item3.setProduct(keyboard);
         item4.setProduct(mouse);
 
-        Invoice invoice = new Invoice();
-        invoice.getItems().add(item1);
-        invoice.getItems().add(item2);
-        invoice.getItems().add(item3);
-        invoice.getItems().add(item4);
+        notebook.getItemsList().add(item1);
+        monitor.getItemsList().add(item2);
+        keyboard.getItemsList().add(item3);
+        mouse.getItemsList().add(item4);
 
-        item1.setInvoices(invoice);
-        item2.setInvoices(invoice);
-        item3.setInvoices(invoice);
-        item4.setInvoices(invoice);
-
+        Invoice invoice = new Invoice("1/10/2017");
+        invoice.getItemsList().add(item1);
+        invoice.getItemsList().add(item2);
+        invoice.getItemsList().add(item3);
+        invoice.getItemsList().add(item4);
 
         //When
         invoiceDao.save(invoice);
-        int size = invoice.getItems().size();
         int id = invoice.getId();
 
         //Then
-        Assert.assertEquals(4, size);
+        Assert.assertEquals(1, id);
 
         //CleanUp
-//        invoiceDao.delete(id);
+        invoiceDao.deleteAll();
     }
 }

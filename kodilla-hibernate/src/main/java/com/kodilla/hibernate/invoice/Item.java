@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 @Entity
 @Table(name="ITEMS")
 public class Item {
+
     private int id;
     private Product product;
     private BigDecimal price;
@@ -25,20 +26,20 @@ public class Item {
     }
 
     @Id
-    @GeneratedValue
     @NotNull
+    @GeneratedValue
     @Column(name="ID")
     public int getId() {
         return id;
     }
 
-    @ManyToOne
-    @JoinColumn(name="PRODUCTS_ID")
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
 
-    @Column(name="PRICE")
+    @Column(name="PRODUCT_PRICE")
     public BigDecimal getPrice() {
         return price;
     }
@@ -57,6 +58,10 @@ public class Item {
     @JoinColumn(name="INVOICES_ID")
     public Invoice getInvoices() {
         return invoices;
+    }
+
+    public void setInvoices(Invoice invoices) {
+        this.invoices = invoices;
     }
 
     public void setId(int id) {
@@ -79,7 +84,4 @@ public class Item {
         this.value = value;
     }
 
-    public void setInvoices(Invoice invoices) {
-        this.invoices = invoices;
-    }
 }
