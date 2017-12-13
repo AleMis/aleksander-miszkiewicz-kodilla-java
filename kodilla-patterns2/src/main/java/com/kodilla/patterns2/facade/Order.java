@@ -75,4 +75,17 @@ public class Order {
     public void setSubmitted(boolean submitted) {
         isSubmitted = submitted;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "productService=" + productService +
+                ", items=" + items +
+                ", orderId=" + orderId +
+                ", userId=" + userId +
+                ", isPaid=" + isPaid +
+                ", isVerified=" + isVerified +
+                ", isSubmitted=" + isSubmitted +
+                '}';
+    }
 }
