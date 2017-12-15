@@ -1,4 +1,4 @@
-package com.kodilla.patterns2.adapter.company.bookclasifier.libraryb;
+package com.kodilla.patterns2.adapter.bookclasifier.libraryb;
 
 import java.util.Arrays;
 import java.util.Map;
