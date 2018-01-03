@@ -52,6 +52,6 @@ public class StoredPostTestSuite {
         if(st.next()) {
             howMany = st.getByte("HOW_MANY");
         }
-        assertEquals(1, howMany);
+        assertEquals(3, howMany);
     }
 }
