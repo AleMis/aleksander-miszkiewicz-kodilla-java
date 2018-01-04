@@ -4,6 +4,7 @@ import com.kodilla.testing2.config.WebDriverConfig;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -107,6 +108,9 @@ public class CrudAppTestSuite {
     }
 
     private void deleteTestTrelloCard(String taskName) {
+        Alert alert = driver.switchTo().alert();
+        alert.dismiss();
+
         driver.navigate().refresh();
 
         while(!driver.findElement(By.xpath("//select[1]")).isDisplayed());
@@ -116,7 +120,6 @@ public class CrudAppTestSuite {
                         anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
                                 .getText().equals(taskName))
                 .forEach(theForm -> {
-                    System.out.println(theForm.getLocation());
                     WebElement buttonDeleteCard = theForm.findElement(By.xpath(".//button[4]"));
                     buttonDeleteCard.click();
                 });
@@ -128,6 +131,7 @@ public class CrudAppTestSuite {
         sendTestTaskToTrello(taskName);
         assertTrue(checkTaskExistsInTrello(taskName));
         deleteTestTrelloCard(taskName);
+
 
     }
 }
